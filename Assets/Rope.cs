@@ -9,38 +9,45 @@ public class Rope : MonoBehaviour
 
     [SerializeField] float linkWidth = 0.2f;
     [SerializeField] int numLinks = 5;
+
+    private float iterX, iterY;
     GameObject[] links;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         links = new GameObject[numLinks];
-        float linkAngle = Vector2.Angle(start.transform.position, end.transform.position);
+        float linkAngle = Vector2.SignedAngle(start.transform.position, end.transform.position);
         float linkLength = Vector2.Distance(start.transform.position, end.transform.position) / numLinks;
 
-        links[0] = GenerateLink(start.GetComponent<Rigidbody2D>(), linkLength, linkWidth, linkAngle);
+        iterX = (end.transform.position.x - start.transform.position.x) / numLinks;
+        iterY = (end.transform.position.y - start.transform.position.y) / numLinks;
+
+        links[0] = GenerateLink(start, linkLength, linkWidth, linkAngle, 0, 0);
+        links[0].GetComponent<HingeJoint2D>().autoConfigureConnectedAnchor = false;
 
         for(int i = 1; i < numLinks; i++)
         {
-            GameObject linkInstance = GenerateLink(links[i - 1].GetComponent<Rigidbody2D>(), linkLength, linkWidth, linkAngle);
-            
+            GameObject linkInstance = GenerateLink(links[i - 1], linkLength, linkWidth, linkAngle, iterX, iterY);
             links[i] = linkInstance;
             
         }
+        //start.GetComponent<HingeJoint2D>().connectedBody = links[0].GetComponent<Rigidbody2D>();
+        //end.GetComponent<HingeJoint2D>().connectedBody = links[numLinks - 1].GetComponent<Rigidbody2D>();
     }
 
-    GameObject GenerateLink(Rigidbody2D startConnect,  float length, float width, float angle)
+    GameObject GenerateLink(GameObject startConnect,  float length, float width, float angle, float xOffset, float yOffset)
     {
         GameObject linkInstance = Instantiate(link, transform);
         linkInstance.transform.localScale = new Vector3(length, width);
-        linkInstance.transform.rotation = new Quaternion(0, 0, angle, 0);
+        linkInstance.transform.rotation = Quaternion.Euler(0, 0, angle);
+        Vector3 pos = new Vector3(startConnect.transform.position.x + xOffset, startConnect.transform.position.y + yOffset);
+        linkInstance.transform.position = pos;
 
         HingeJoint2D hj = linkInstance.GetComponent<HingeJoint2D>();
-        hj.connectedBody = startConnect;
-
+        hj.connectedBody = startConnect.GetComponent<Rigidbody2D>();
         hj.useConnectedAnchor = true;
-        hj.anchor = new Vector2(0, -(length/2));           // bottom of this segment (local)
-        hj.connectedAnchor = new Vector2(0, (length/2));
+        hj.anchor = new Vector2(-(length / 2),0);
 
         return linkInstance;
     }
