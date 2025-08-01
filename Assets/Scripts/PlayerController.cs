@@ -7,9 +7,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float gcOffset = 0.5f;
    
     [SerializeField] LayerMask whatIsGround;
+    [SerializeField] LayerMask whatIsPlatform;
     private float groundedRadius = 0.2f;
     private Rigidbody2D rb;
-    private Collider2D coll;
     private Vector2 mVel = Vector2.zero;
     private Vector3 groundCheck;
     private bool flipped = false;
@@ -17,8 +17,12 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded = false;
     private bool dead = false;
 
+    private Vector2 velocityModifier;
+
     private Animator animator;
     private SpriteRenderer spriteRenderer;
+
+    private MovingPlatform currentPlatform;
 
     void Start()
     {
@@ -40,12 +44,22 @@ public class PlayerController : MonoBehaviour
         groundCheck.y = transform.position.y - gcOffset;
         isGrounded = false;
 
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck, groundedRadius, whatIsGround);
+        currentPlatform = null;
+
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck, groundedRadius);
         for(int i = 0; i < colliders.Length; i++)
         {
-            if(colliders[i].gameObject != gameObject)
+            if (colliders[i].gameObject != gameObject)
             {
-                isGrounded = true;
+                if ((whatIsGround & (1 << colliders[i].gameObject.layer)) != 0)
+                {
+                    isGrounded = true;
+                }
+                else if(!currentPlatform && (whatIsPlatform & (1 << colliders[i].gameObject.layer)) != 0)
+                {
+                    isGrounded = true;
+                    currentPlatform = colliders[i].gameObject.GetComponent<MovingPlatform>();
+                }
             }
         }
         Move(Input.GetAxisRaw("Horizontal"), queueJump);
@@ -72,10 +86,14 @@ public class PlayerController : MonoBehaviour
             Flip(false);
         }
 
-            Vector2 targetVelocity = new Vector2(move * 10f, rb.linearVelocityY);
-        rb.linearVelocity = Vector2.SmoothDamp(rb.linearVelocity, targetVelocity, ref mVel, movementSmoothing);
+        Vector2 targetVelocity = new Vector2(move * 10f, rb.linearVelocityY);
+        rb.linearVelocity -= velocityModifier;
+        Vector2 moveVel = Vector2.SmoothDamp(rb.linearVelocity, targetVelocity, ref mVel, movementSmoothing);
+        if (currentPlatform) velocityModifier = currentPlatform.GetVelModifier();
+        moveVel += velocityModifier;
+        rb.linearVelocity = moveVel;
 
-        if(jump && isGrounded)
+        if (jump && isGrounded)
         {
             isGrounded = false;
             queueJump = false;
