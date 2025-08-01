@@ -1,11 +1,14 @@
 using UnityEngine;
-using System.Collections.Generic;
+using System.Collections;
+using Unity.Cinemachine;
+using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance { get; private set; }
-
-    private List<Checkpoint> checkpoints = new List<Checkpoint>();
+    public GameObject wholeScene;
+    private System.Collections.Generic.List<Checkpoint> checkpoints = new System.Collections.Generic.List<Checkpoint>();
 
     private void Awake()
     {
@@ -37,8 +40,17 @@ public class LevelManager : MonoBehaviour
         LevelWon();
     }
 
-    private void LevelWon()
+    public void LevelLost()
+    {
+        Debug.Log("This level has been lost");
+        StartCoroutine((WipeToNextScene.WipeToScene(SceneManager.GetActiveScene().buildIndex, 1, Camera.main.GetComponentInChildren<CircleController>())));
+    }
+
+    public void LevelWon()
     {
         Debug.Log("The level has been won!");
+        Camera.main.GetComponent<CinemachineCamera>().Follow = wholeScene.transform;
+        StartCoroutine((WipeToNextScene.WipeToScene(SceneManager.GetActiveScene().buildIndex + 1, 
+            3f, Camera.main.GetComponentInChildren<CircleController>())));
     }
 }

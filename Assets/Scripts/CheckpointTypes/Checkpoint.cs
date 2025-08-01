@@ -3,8 +3,8 @@ using UnityEngine;
 public abstract class Checkpoint : MonoBehaviour
 {
     protected bool powered;
+    private PlayerController playerController;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         LevelManager.Instance.RegisterCheckpoint(this);
@@ -12,11 +12,21 @@ public abstract class Checkpoint : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        CableManager cableManager = collision.gameObject.GetComponent<CableManager>();
-        if(!powered && cableManager)
+        collision.TryGetComponent(out playerController);
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        playerController = null;
+    }
+
+    private void Update()
+    {
+        if (!powered && playerController && Input.GetKeyDown(KeyCode.E))
         {
-            NewConnection(cableManager.GetCurrentlyConnectedCheckpoint());
-            cableManager.MarkCheckpoint(this);
+            CableManager cable = playerController.GetComponentInChildren<CableManager>();
+            NewConnection(cable.GetCurrentlyConnectedCheckpoint());
+            cable.MarkCheckpoint(this);
         }
     }
 
