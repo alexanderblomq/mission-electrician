@@ -1,6 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 
 public class CableManager : MonoBehaviour
 {
@@ -10,8 +11,13 @@ public class CableManager : MonoBehaviour
     [SerializeField] Color closeColor;
     [SerializeField] Color farColor;
     [SerializeField] float maxDistance = 20f;
+    [SerializeField] Vector3 cableStartOffset;
+
+    [SerializeField] Vector3 cableStartOffsetFlipped;
 
     [SerializeField] GameObject linePrefab;
+
+    private Vector3 offset;
 
     private Checkpoint currentConnected;
 
@@ -25,6 +31,18 @@ public class CableManager : MonoBehaviour
     void Start()
     {
         CreateLine(OriginPoint.transform.position, EndPoint.transform.position);
+    }
+
+    public void flipOffset(bool flipped)
+    {
+        if(flipped)
+        {
+            offset = cableStartOffsetFlipped;
+        }
+        else
+        {
+            offset = cableStartOffset;
+        }
     }
 
     public LineRenderer CreateLine(Vector2 start, Vector2 end)
@@ -69,7 +87,7 @@ public class CableManager : MonoBehaviour
 
     void CableUpdate()
     {
-        currentMoving.SetPosition(1, EndPoint.transform.position);
+        currentMoving.SetPosition(1, EndPoint.transform.position + offset);
         float dist = Vector2.Distance(EndPoint.transform.position, currentMoving.GetPosition(0));
 
         Color currColor = Color.Lerp(closeColor, farColor, Mathf.Clamp01(dist / maxDistance));
@@ -130,12 +148,22 @@ public class CableManager : MonoBehaviour
         Vector2 a1 = AdjustedLineStart(currentMoving.GetPosition(0), currentMoving.GetPosition(1), 0.1f);
         Vector2 a2 = AdjustedLineEnd(currentMoving.GetPosition(0), currentMoving.GetPosition(1), 0.1f);
 
+        if (Vector2.Distance(a1, a2) < 3) return false;
+
         foreach (var line in lines)
         {
-            if (line == currentMoving || line == lines[lines.Count-2]) continue; // skip current line
+            if (line == currentMoving) continue; // skip current line
 
-            Vector2 b1 = line.GetPosition(0);
-            Vector2 b2 = line.GetPosition(1);
+            Vector2 b1, b2;
+
+            if(line == lines[lines.Count - 2])
+            {
+                b1 = AdjustedLineStart(line.GetPosition(0), line.GetPosition(1), 0.1f);
+                b2 = AdjustedLineEnd(line.GetPosition(0), line.GetPosition(1), 0.1f);
+            }
+
+            b1 = line.GetPosition(0);
+            b2 = line.GetPosition(1);
 
             if (DoLinesIntersect(a1, a2, b1, b2))
             {

@@ -1,0 +1,730 @@
+fileFormatVersion: 2
+guid: c90b091f29f52a840970f2b1904b582a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4726522335782357095
+    second: office_0
+  - first:
+      213: -2063119410429711812
+    second: office_1
+  - first:
+      213: 3241429223417838038
+    second: office_2
+  - first:
+      213: 32504679054095329
+    second: office_3
+  - first:
+      213: 7116133925296819680
+    second: office_4
+  - first:
+      213: 1460095345990884287
+    second: office_5
+  - first:
+      213: 1362712644197807595
+    second: office_6
+  - first:
+      213: -7664057763647390325
+    second: office_7
+  - first:
+      213: -7921349510803149561
+    second: office_8
+  - first:
+      213: -6911096837670808554
+    second: office_9
+  - first:
+      213: -2804444419145914996
+    second: office_10
+  - first:
+      213: 5733635913342364750
+    second: office_11
+  - first:
+      213: 6616607262994995029
+    second: office_12
+  - first:
+      213: -103504888457580276
+    second: office_13
+  - first:
+      213: 8625065222492617249
+    second: office_14
+  - first:
+      213: 5557665860244518938
+    second: office_15
+  - first:
+      213: 8671946129384003003
+    second: office_16
+  - first:
+      213: -7658336873572344305
+    second: office_17
+  - first:
+      213: -4371945473481396426
+    second: office_18
+  - first:
+      213: -3459357862093026732
+    second: office_19
+  - first:
+      213: -3351099965701029289
+    second: office_20
+  - first:
+      213: 5924335676118081595
+    second: office_21
+  - first:
+      213: -3970648305846796810
+    second: office_22
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 15
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: office_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 11059
+        width: 492
+        height: 355
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 768c14fa50bf79140800000000000000
+      internalID: 4726522335782357095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: office_1
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 10081
+        width: 64
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3aaf1cb3d35e53e0800000000000000
+      internalID: -2063119410429711812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: office_2
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 9581
+        width: 102
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d9f36274bedbfc20800000000000000
+      internalID: 3241429223417838038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: office_3
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 9083
+        width: 22
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e3be8855da737000800000000000000
+      internalID: 32504679054095329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: office_4
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 8631
+        width: 336
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ed4c672a1691c260800000000000000
+      internalID: 7116133925296819680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: office_5
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 8166
+        width: 286
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbbdcf33bfc434410800000000000000
+      internalID: 1460095345990884287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: office_6
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 7704
+        width: 219
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be5f7501ee359e210800000000000000
+      internalID: 1362712644197807595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: office_7
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 7243
+        width: 148
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8df8b3e11cc3a590800000000000000
+      internalID: -7664057763647390325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: office_8
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 6784
+        width: 98
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70d2ddac696b11290800000000000000
+      internalID: -7921349510803149561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: office_9
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 6479
+        width: 107
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6145e4eea0ad610a0800000000000000
+      internalID: -6911096837670808554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: office_10
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 6389
+        width: 216
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c852b7cc8ac9419d0800000000000000
+      internalID: -2804444419145914996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: office_11
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 6351
+        width: 98
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4ca13e2c77f19f40800000000000000
+      internalID: 5733635913342364750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: office_12
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 5711
+        width: 83
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5571619df39e2db50800000000000000
+      internalID: 6616607262994995029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: office_13
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 5310
+        width: 49
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0138f23ad6409ef0800000000000000
+      internalID: -103504888457580276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: office_14
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 4782
+        width: 65
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12a7f3f4f1362b770800000000000000
+      internalID: 8625065222492617249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: office_15
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 4278
+        width: 65
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a18b03477abc02d40800000000000000
+      internalID: 5557665860244518938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: office_16
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 3381
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb5d1490f01f85870800000000000000
+      internalID: 8671946129384003003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: office_17
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 2881
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0ed178603f18b590800000000000000
+      internalID: -7658336873572344305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: office_18
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 2304
+        width: 107
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63fa3c361cab353c0800000000000000
+      internalID: -4371945473481396426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: office_19
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 1662
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45a8df65a54edffc0800000000000000
+      internalID: -3459357862093026732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: office_20
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 1081
+        width: 54
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 752019906508e71d0800000000000000
+      internalID: -3351099965701029289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: office_21
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 718
+        width: 75
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1aa244aaa63c6bb40a6a99332131f01c
+      internalID: -1014739347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: office_22
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 82
+        width: 21
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 269627541aaa44840b5b752f4bd54737
+      internalID: -2052114217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 7ab2cf313d8370843bbc48da3b08a9f7
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":500.0,"y":500.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      office_0: 4726522335782357095
+      office_1: -2063119410429711812
+      office_10: -2804444419145914996
+      office_11: 5733635913342364750
+      office_12: 6616607262994995029
+      office_13: -103504888457580276
+      office_14: 8625065222492617249
+      office_15: 5557665860244518938
+      office_16: 8671946129384003003
+      office_17: -7658336873572344305
+      office_18: -4371945473481396426
+      office_19: -3459357862093026732
+      office_2: 3241429223417838038
+      office_20: -3351099965701029289
+      office_21: -1014739347
+      office_22: -2052114217
+      office_3: 32504679054095329
+      office_4: 7116133925296819680
+      office_5: 1460095345990884287
+      office_6: 1362712644197807595
+      office_7: -7664057763647390325
+      office_8: -7921349510803149561
+      office_9: -6911096837670808554
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

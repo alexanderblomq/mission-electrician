@@ -5,6 +5,7 @@ public class SimpleCheckpoint : Checkpoint
     public override void NewConnection(Checkpoint prev)
     {
         GetComponent<SpriteRenderer>().color = Color.green;
+        GetComponent<AudioSource>().Play();
         powered = true;
 
         LevelManager.Instance.CheckWin();

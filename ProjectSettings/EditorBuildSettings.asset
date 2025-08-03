@@ -9,11 +9,17 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: e78a744ee2fd36f4baa57d54d9598bf3
   - enabled: 1
-    path: Assets/Scenes/LevelOne.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/Scenes/MailScene.unity
+    guid: fa586d7b9c60e474080c9b25d2ad23b5
+  - enabled: 1
+    path: Assets/Scenes/LevelONe 1.unity
+    guid: cc724175ace957a4aa4db5faf4869a48
   - enabled: 1
     path: Assets/Scenes/LevelTwo.unity
-    guid: 49fb9d7a888749f48a8466d63deb71d7
+    guid: 86838fec1764129438f44758177760a4
+  - enabled: 0
+    path: Assets/Scenes/LevelOne.unity
+    guid: 8c9cfa26abfee488c85f1582747f6a02
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

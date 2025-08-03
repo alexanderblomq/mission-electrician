@@ -1,14 +1,21 @@
 using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 using Unity.Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
+using UnityEngine.Rendering.Universal;
 
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance { get; private set; }
     public GameObject wholeScene;
-    private System.Collections.Generic.List<Checkpoint> checkpoints = new System.Collections.Generic.List<Checkpoint>();
+    private List<Checkpoint> checkpoints = new List<Checkpoint>();
+
+    private bool[] levelUnlockedStatus = new bool[7];
+
+    [SerializeField] AudioClip winSound;
+    [SerializeField] AudioClip loseSound;
 
     private void Awake()
     {
@@ -21,6 +28,11 @@ public class LevelManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject); // Optional: Persist across scenes
         }
+    }
+
+    public void LevelWasStarted()
+    {
+        levelUnlockedStatus[getLevelID()] = true;
     }
 
     public void RegisterCheckpoint(Checkpoint checkpoint)
@@ -42,14 +54,37 @@ public class LevelManager : MonoBehaviour
 
     public void LevelLost()
     {
+        GetComponent<AudioSource>().clip = loseSound;
+        GetComponent<AudioSource>().Play();
+        checkpoints = new List<Checkpoint>();
         Debug.Log("This level has been lost");
         StartCoroutine((WipeToNextScene.WipeToScene(SceneManager.GetActiveScene().buildIndex, 1, Camera.main.GetComponentInChildren<CircleController>())));
     }
 
+    public bool CheckLevelUnlocked(int levelID)
+    {
+        if (levelUnlockedStatus[levelID - 1]) return true;
+        return false;
+    }
+
+    private int getLevelID() { return SceneManager.GetActiveScene().buildIndex - 2; }
+
     public void LevelWon()
     {
+        if(getLevelID() >= 0)
+        {
+            levelUnlockedStatus[getLevelID()] = true;
+        }
+        GetComponent<AudioSource>().clip = winSound;
+        GetComponent<AudioSource>().Play();
+        checkpoints = new List<Checkpoint>();
         Debug.Log("The level has been won!");
-        Camera.main.GetComponent<CinemachineCamera>().Follow = wholeScene.transform;
+        CinemachineCamera cam = Camera.main.GetComponent<CinemachineCamera>();
+        CinemachineThirdPersonFollow follow = cam.GetComponent<CinemachineThirdPersonFollow>();
+        cam.Follow = wholeScene.transform;
+        DOTween.To(() => follow.ShoulderOffset.y, x => follow.ShoulderOffset.y = x, follow.ShoulderOffset.y+10, 5f);
+
+
         StartCoroutine((WipeToNextScene.WipeToScene(SceneManager.GetActiveScene().buildIndex + 1, 
             3f, Camera.main.GetComponentInChildren<CircleController>())));
     }

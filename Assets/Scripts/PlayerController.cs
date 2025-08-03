@@ -5,17 +5,20 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float jumpForce = 2f;
     [SerializeField] float movementSmoothing = 1f;
     [SerializeField] float gcOffset = 0.5f;
-   
+
+    
     [SerializeField] LayerMask whatIsGround;
     [SerializeField] LayerMask whatIsPlatform;
     private float groundedRadius = 0.2f;
     private Rigidbody2D rb;
     private Vector2 mVel = Vector2.zero;
-    private Vector3 groundCheck;
+    [SerializeField] Transform groundCheck;
     private bool flipped = false;
     private bool queueJump = false;
     private bool isGrounded = false;
     private bool dead = false;
+
+    private AudioSource audio;
 
     private Vector2 velocityModifier;
 
@@ -26,11 +29,10 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        audio = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-
-        groundCheck = new Vector3(transform.position.x, transform.position.y - gcOffset, 0);
     }
 
     private void Update()
@@ -40,13 +42,11 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        groundCheck.x = transform.position.x;
-        groundCheck.y = transform.position.y - gcOffset;
         isGrounded = false;
 
         currentPlatform = null;
 
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck, groundedRadius);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck.position, groundedRadius);
         for(int i = 0; i < colliders.Length; i++)
         {
             if (colliders[i].gameObject != gameObject)
@@ -68,13 +68,26 @@ public class PlayerController : MonoBehaviour
     public void Electrocute()
     {
         dead = true;
+        animator.SetTrigger("Electrocuted");
+        rb.bodyType = RigidbodyType2D.Static;
         LevelManager.Instance.LevelLost();
         //TODO: Get electrocuted
     }
 
     public void Move(float move, bool jump)
     {
-        if(dead) return;
+        if (dead) return;
+
+        if (Mathf.Abs(move) > 0)
+        {
+            if (!audio.isPlaying) audio.Play();
+            animator.SetBool("Running", true);
+        }
+        else
+        {
+            audio.Stop();
+            animator.SetBool("Running", false);
+        }
         if (!flipped && move < 0)
         {
             Debug.Log("Flipping to the left");
@@ -103,6 +116,7 @@ public class PlayerController : MonoBehaviour
 
     public void Flip(bool faceLeft)
     {
+        GetComponentInChildren<CableManager>().flipOffset(faceLeft);
         spriteRenderer.flipX = faceLeft;
         flipped = faceLeft;
     }
