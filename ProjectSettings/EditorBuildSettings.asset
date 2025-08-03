@@ -12,11 +12,26 @@ EditorBuildSettings:
     path: Assets/Scenes/MailScene.unity
     guid: fa586d7b9c60e474080c9b25d2ad23b5
   - enabled: 1
-    path: Assets/Scenes/LevelONe 1.unity
+    path: Assets/Scenes/Level1.unity
     guid: cc724175ace957a4aa4db5faf4869a48
   - enabled: 1
-    path: Assets/Scenes/LevelTwo.unity
+    path: Assets/Scenes/Level2.unity
+    guid: fc33b6b58972c5246b83a872a6e1926b
+  - enabled: 1
+    path: Assets/Scenes/Level3.unity
+    guid: 1adb479aaf11c1c4f9346a05313fc63d
+  - enabled: 1
+    path: Assets/Scenes/Level4.unity
+    guid: 9c50ccd1bf5c2464e98d167b40056cd2
+  - enabled: 1
+    path: Assets/Scenes/Level5.unity
     guid: 86838fec1764129438f44758177760a4
+  - enabled: 1
+    path: Assets/Scenes/Level6.unity
+    guid: 4645a845e7b4b6d4a971e0904964b55f
+  - enabled: 1
+    path: Assets/Scenes/Level7.unity
+    guid: 392c79cee5d502648915ab482b7c0f6a
   - enabled: 0
     path: Assets/Scenes/LevelOne.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02

@@ -55,6 +55,7 @@ public class LevelManager : MonoBehaviour
     public void LevelLost()
     {
         GetComponent<AudioSource>().clip = loseSound;
+        GetComponent<AudioSource>().volume = 0.5f;
         GetComponent<AudioSource>().Play();
         checkpoints = new List<Checkpoint>();
         Debug.Log("This level has been lost");
@@ -86,6 +87,21 @@ public class LevelManager : MonoBehaviour
 
 
         StartCoroutine((WipeToNextScene.WipeToScene(SceneManager.GetActiveScene().buildIndex + 1, 
+            3f, Camera.main.GetComponentInChildren<CircleController>())));
+    }
+
+    public void GameWon()
+    {
+        if (getLevelID() >= 0)
+        {
+            levelUnlockedStatus[getLevelID()] = true;
+        }
+
+        CinemachineCamera cam = Camera.main.GetComponent<CinemachineCamera>();
+        CinemachineThirdPersonFollow follow = cam.GetComponent<CinemachineThirdPersonFollow>();
+        cam.Follow = wholeScene.transform;
+
+        StartCoroutine((WipeToNextScene.WipeToScene(0,
             3f, Camera.main.GetComponentInChildren<CircleController>())));
     }
 }

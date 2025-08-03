@@ -23,7 +23,7 @@ public class CableManager : MonoBehaviour
 
     private LineRenderer currentMoving;
 
-    private List<LineRenderer> lines = new List<LineRenderer>();
+    [SerializeField] List<LineRenderer> lines = new List<LineRenderer>();
 
     private bool crossed = false;
 

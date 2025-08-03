@@ -2,26 +2,42 @@ using NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using Unity.VisualScripting;
 
 public class MenuManager : MonoBehaviour
 {
     [SerializeField] List<GameObject> carrotSegments = new List<GameObject>();
+    [SerializeField] GameObject spriteTopOfMusic;
+    private AudioSource mainMusic;
+
     private void Start()
     {
-        LevelManager.Instance.LevelWasStarted();
-        for (int i = 0; i < carrotSegments.Count; i++)
+        mainMusic = GetComponent<AudioSource>(); 
+        if(LevelManager.Instance != null)
         {
-            if(!LevelManager.Instance.CheckLevelUnlocked(i+1))
+            LevelManager.Instance.LevelWasStarted();
+            for (int i = 0; i < carrotSegments.Count; i++)
             {
-                carrotSegments[i].GetComponent<Button>().interactable = false;
+                if (LevelManager.Instance.CheckLevelUnlocked(i + 1))
+                {
+                    carrotSegments[i].GetComponent<Button>().interactable = true;
+                }
             }
         }
+        
     }
+
+    public void ToggleMusic()
+    {
+        spriteTopOfMusic.SetActive(!MusicManager.Instance.ToggleMusic());
+    }
+    
+
     public void LoadLevel(int level)
     {
         if (LevelManager.Instance.CheckLevelUnlocked(level))
         {
-            WipeToNextScene.WipeToScene(level, 3, Camera.main.GetComponentInChildren<CircleController>());
+            StartCoroutine(WipeToNextScene.WipeToScene(level+1, 3, Camera.main.GetComponentInChildren<CircleController>()));
         }
     }
 }
