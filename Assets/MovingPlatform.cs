@@ -67,7 +67,6 @@ public class MovingPlatform : MonoBehaviour
 
     public Vector2 GetVelModifier()
     {
-        Debug.Log("Velocity: " + velocity);
         return velocity;
     }
 

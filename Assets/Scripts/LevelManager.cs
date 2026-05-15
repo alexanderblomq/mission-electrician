@@ -1,10 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 using Unity.Cinemachine;
-using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
-using UnityEngine.Rendering.Universal;
 
 public class LevelManager : MonoBehaviour
 {
@@ -58,7 +56,6 @@ public class LevelManager : MonoBehaviour
         GetComponent<AudioSource>().volume = 0.5f;
         GetComponent<AudioSource>().Play();
         checkpoints = new List<Checkpoint>();
-        Debug.Log("This level has been lost");
         StartCoroutine((WipeToNextScene.WipeToScene(SceneManager.GetActiveScene().buildIndex, 1, Camera.main.GetComponentInChildren<CircleController>())));
     }
 
@@ -79,7 +76,6 @@ public class LevelManager : MonoBehaviour
         GetComponent<AudioSource>().clip = winSound;
         GetComponent<AudioSource>().Play();
         checkpoints = new List<Checkpoint>();
-        Debug.Log("The level has been won!");
         CinemachineCamera cam = Camera.main.GetComponent<CinemachineCamera>();
         CinemachineThirdPersonFollow follow = cam.GetComponent<CinemachineThirdPersonFollow>();
         cam.Follow = wholeScene.transform;

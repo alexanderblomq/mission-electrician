@@ -1,7 +1,6 @@
 using UnityEngine;
 using DG.Tweening;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 
 public class CableManager : MonoBehaviour
 {
@@ -63,7 +62,6 @@ public class CableManager : MonoBehaviour
 
     public void MarkCheckpoint(Checkpoint checkpoint)
     {
-        Debug.Log("marking checkpoint");
         currentConnected = checkpoint;
         Vector3 currentPos = transform.position;
 

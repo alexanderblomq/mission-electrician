@@ -71,7 +71,6 @@ public class PlayerController : MonoBehaviour
         animator.SetTrigger("Electrocuted");
         rb.bodyType = RigidbodyType2D.Static;
         LevelManager.Instance.LevelLost();
-        //TODO: Get electrocuted
     }
 
     public void Move(float move, bool jump)
@@ -90,12 +89,10 @@ public class PlayerController : MonoBehaviour
         }
         if (!flipped && move < 0)
         {
-            Debug.Log("Flipping to the left");
             Flip(true);
         }
         else if (flipped && move > 0)
         {
-            Debug.Log("Flipping to the right");
             Flip(false);
         }
 

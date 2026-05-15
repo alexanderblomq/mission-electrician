@@ -1,8 +1,6 @@
-using NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
-using Unity.VisualScripting;
 
 public class MenuManager : MonoBehaviour
 {
