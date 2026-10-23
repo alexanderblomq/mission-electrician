@@ -10,9 +10,9 @@ public class GridGenerator : MonoBehaviour
     {
         float squareWidth = squareObj.GetComponent<Transform>().localScale.x;
 
-        for(int y = 0; y < gridLength; y++)
+        for(int x = 0; x < gridWidth; x++)
         {
-            for(int x = 0; x < gridWidth; x++)
+            for(int y = 0; y < gridLength; y++)
             {
                 float xPos = x * squareWidth;
                 float yPos = y * squareWidth;
