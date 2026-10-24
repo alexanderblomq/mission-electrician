@@ -83,6 +83,7 @@ MonoBehaviour:
   cableStartOffset: {x: -0.813, y: 0.327, z: 0}
   cableStartOffsetFlipped: {x: 0.79, y: 0, z: 0}
   linePrefab: {fileID: 8350935663635432845, guid: 2bbab79ff75797947b6348b87cf4c984, type: 3}
+  lines: []
 --- !u!1 &9003239270892845277
 GameObject:
   m_ObjectHideFlags: 0
@@ -238,7 +239,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.19852185, y: -0.46690798}
+  m_Offset: {x: -0.30956328, y: -0.9169178}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -248,7 +249,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.5, y: 1.9132128}
+  m_Size: {x: 1.5064714, y: 0.8729296}
   m_EdgeRadius: 0
 --- !u!114 &8132705442399113679
 MonoBehaviour:

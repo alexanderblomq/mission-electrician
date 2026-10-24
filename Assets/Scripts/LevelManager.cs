@@ -38,16 +38,16 @@ public class LevelManager : MonoBehaviour
         checkpoints.Add(checkpoint);
     }
 
-    public void CheckWin()
+    public bool isLevelWon()
     {
         foreach(Checkpoint checkpoint in checkpoints)
         {
             if(!checkpoint.CheckPowered())
             {
-                return;
+                return false;
             }
         }
-        LevelWon();
+        return true;
     }
 
     public void LevelLost()

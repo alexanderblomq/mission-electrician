@@ -2,10 +2,20 @@ using UnityEngine;
 
 public class StartCheckpoint : Checkpoint
 {
-    public override void NewConnection(Checkpoint prev)
+    public override void Start() {
+      connectable = false;
+    }
+
+    public override void Update() {
+      if(!LevelManager.Instance.isLevelWon()){
+        return;
+      }
+      base.Update();
+    }
+
+    public override void NewConnection()
     {
-        powered = true;
-        GetComponent<SpriteRenderer>().color = Color.green;
-        LevelManager.Instance.CheckWin();
+        base.NewConnection();
+        LevelManager.Instance.LevelWon();
     }
 }

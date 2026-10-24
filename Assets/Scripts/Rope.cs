@@ -45,10 +45,4 @@ public class Rope : MonoBehaviour
 
         return linkInstance;
     }
- 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

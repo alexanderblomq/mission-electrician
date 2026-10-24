@@ -2,12 +2,9 @@ using UnityEngine;
 
 public class SimpleCheckpoint : Checkpoint
 {
-    public override void NewConnection(Checkpoint prev)
+    public override void NewConnection()
     {
-        GetComponent<SpriteRenderer>().color = Color.green;
+        base.NewConnection();
         GetComponent<AudioSource>().Play();
-        powered = true;
-
-        LevelManager.Instance.CheckWin();
     }
 }

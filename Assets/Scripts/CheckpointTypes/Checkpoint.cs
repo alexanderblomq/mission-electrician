@@ -1,11 +1,14 @@
 using UnityEngine;
 
+/* 
+ * This is the base Checkpoint class, each node in the puzzle is a Checkpoint. This is an abstract class as some checkpoints have special behavior.
+ */
 public abstract class Checkpoint : MonoBehaviour
 {
-    protected bool powered;
     private PlayerController playerController;
+    protected bool connectable = true;
 
-    void Start()
+    abstract void Start()
     {
         LevelManager.Instance.RegisterCheckpoint(this);
     }
@@ -20,9 +23,9 @@ public abstract class Checkpoint : MonoBehaviour
         playerController = null;
     }
 
-    private void Update()
+    abstract void Update()
     {
-        if (!powered && playerController && Input.GetKeyDown(KeyCode.E))
+        if (connectable && playerController && Input.GetKeyDown(KeyCode.E))
         {
             CableManager cable = playerController.GetComponentInChildren<CableManager>();
             NewConnection(cable.GetCurrentlyConnectedCheckpoint());
@@ -30,7 +33,10 @@ public abstract class Checkpoint : MonoBehaviour
         }
     }
 
-    public abstract void NewConnection(Checkpoint prev);
+    public abstract void NewConnection(Checkpoint prev) {
+        GetComponent<SpriteRenderer>().color = Color.green;
+        connectable = false;
+    }
 
     public bool CheckPowered()
     {

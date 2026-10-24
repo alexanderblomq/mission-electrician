@@ -11,6 +11,7 @@ public class CircleController : MonoBehaviour
     [SerializeField] public float openTime = 6f;
     [SerializeField] public float closeTime = 6f;
 
+
     private void Awake()
     {
         if(OpenAtStart)

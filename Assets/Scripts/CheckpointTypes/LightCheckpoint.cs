@@ -2,13 +2,10 @@ using UnityEngine;
 
 public class LightCheckpoint : Checkpoint
 {
-    public override void NewConnection(Checkpoint prev)
+    public override void NewConnection()
     {
-        GetComponent<SpriteRenderer>().color = Color.green;
+        base.NewConnection();
         GetComponent<AudioSource>().Play();
         GetComponentInChildren<Light>().TurnOn();
-        powered = true;
-
-        LevelManager.Instance.CheckWin();
     }
 }

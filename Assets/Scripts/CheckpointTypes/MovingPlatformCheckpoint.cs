@@ -3,17 +3,9 @@ using UnityEngine;
 public class MovingPlatformCheckpoint : Checkpoint
 {
     [SerializeField] MovingPlatform platform;
-    public override void NewConnection(Checkpoint prev)
+    public override void NewConnection()
     {
-        GetComponent<SpriteRenderer>().color = Color.green;
-        powered = true;
+        base.NewConnection();
         platform.MoveToEnd();
-
-        LevelManager.Instance.CheckWin();
     }
-
-    //public override void Disconnected()
-    //{
-    //    powered = false;
-    //}
 }
