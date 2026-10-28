@@ -2,20 +2,11 @@ using UnityEngine;
 
 public class StartCheckpoint : Checkpoint
 {
-    public override void Start() {
-      connectable = false;
-    }
+    public override bool RequiredForCompletion => false;
+    protected override bool CanConnect => base.CanConnect && LevelManager.Instance.isLevelWon();
 
-    public override void Update() {
-      if(!LevelManager.Instance.isLevelWon()){
-        return;
-      }
-      base.Update();
-    }
-
-    public override void NewConnection()
+    protected override void OnConnected(Checkpoint prev)
     {
-        base.NewConnection();
         LevelManager.Instance.LevelWon();
     }
 }

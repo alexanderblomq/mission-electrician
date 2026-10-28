@@ -2,9 +2,8 @@ using UnityEngine;
 
 public class LightCheckpoint : Checkpoint
 {
-    public override void NewConnection()
+    protected override void OnConnected(Checkpoint prev)
     {
-        base.NewConnection();
         GetComponent<AudioSource>().Play();
         GetComponentInChildren<Light>().TurnOn();
     }

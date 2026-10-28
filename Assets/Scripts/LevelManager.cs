@@ -42,7 +42,7 @@ public class LevelManager : MonoBehaviour
     {
         foreach(Checkpoint checkpoint in checkpoints)
         {
-            if(!checkpoint.CheckPowered())
+            if(checkpoint.RequiredForCompletion && !checkpoint.CheckPowered())
             {
                 return false;
             }

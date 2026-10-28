@@ -6,9 +6,12 @@ using UnityEngine;
 public abstract class Checkpoint : MonoBehaviour
 {
     private PlayerController playerController;
-    protected bool connectable = true;
+    private bool powered;
 
-    abstract void Start()
+    public virtual bool RequiredForCompletion => true;
+    protected virtual bool CanConnect => !powered;
+
+    private void Start()
     {
         LevelManager.Instance.RegisterCheckpoint(this);
     }
@@ -23,19 +26,32 @@ public abstract class Checkpoint : MonoBehaviour
         playerController = null;
     }
 
-    abstract void Update()
+    private void Update()
     {
-        if (connectable && playerController && Input.GetKeyDown(KeyCode.E))
+        if (playerController && Input.GetKeyDown(KeyCode.E))
         {
             CableManager cable = playerController.GetComponentInChildren<CableManager>();
-            NewConnection(cable.GetCurrentlyConnectedCheckpoint());
-            cable.MarkCheckpoint(this);
+            TryConnect(cable);
         }
     }
 
-    public abstract void NewConnection(Checkpoint prev) {
+    public bool TryConnect(CableManager cable)
+    {
+        if (!CanConnect || !cable)
+        {
+            return false;
+        }
+
+        Checkpoint prev = cable.GetCurrentlyConnectedCheckpoint();
+        powered = true;
         GetComponent<SpriteRenderer>().color = Color.green;
-        connectable = false;
+        cable.MarkCheckpoint(this);
+        OnConnected(prev);
+        return true;
+    }
+
+    protected virtual void OnConnected(Checkpoint prev)
+    {
     }
 
     public bool CheckPowered()

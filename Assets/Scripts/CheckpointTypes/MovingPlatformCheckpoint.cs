@@ -3,9 +3,8 @@ using UnityEngine;
 public class MovingPlatformCheckpoint : Checkpoint
 {
     [SerializeField] MovingPlatform platform;
-    public override void NewConnection()
+    protected override void OnConnected(Checkpoint prev)
     {
-        base.NewConnection();
         platform.MoveToEnd();
     }
 }
